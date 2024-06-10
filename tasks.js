@@ -1,5 +1,8 @@
+const fs = require('fs');
+const filePath = "tasks.json";
+
 // Placeholder for task list
-const tasks = [];
+var taskList = [];
 
 // Placeholder for adding a task
 function addTask(task) {
@@ -23,6 +26,23 @@ function removeTask(index) {
 function markTaskComplete(index) {
     // TODO: Implement marking a task complete
     console.log(`Task marked complete at index: ${index}`);
+}
+
+
+function loadTasks() {
+    try {
+        const dataBuffer = fs.readFileSync(filePath);
+        const dataJSON = dataBuffer.toString();
+        return JSON.parse(dataJSON);
+    } catch (e) {
+        return [];
+    }
+}
+
+// Helper function to save tasks to the file
+function saveTasks(tasks) {
+    const dataJSON = JSON.stringify(tasks);
+    fs.writeFileSync(filePath, dataJSON);
 }
 
 module.exports = {
