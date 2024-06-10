@@ -6,7 +6,9 @@ var taskList = [];
 
 // Placeholder for adding a task
 function addTask(task) {
-    // TODO: Implement adding a task
+    taskList = loadTasks();
+    taskList.push(task);
+    saveTasks(taskList);
     console.log(`Task added: ${task}`);
 }
 
