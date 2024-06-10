@@ -14,7 +14,10 @@ function addTask(task) {
 
 // Placeholder for viewing tasks
 function viewTasks() {
-    // TODO: Implement viewing tasks
+    taskList = loadTasks();
+    for (let i = 0; i < taskList.length; i++) {
+        console.log(taskList[i]);
+      }
     console.log('Viewing all tasks');
 }
 
